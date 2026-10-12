@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Book a visit | Cat Sitter Bianca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--bg:#E6FAF7;--card:#fff;--ink:#0E3B43;--muted:#3B6B72;--field:#F1FBF9;--edge:#0E3B43;--primary:#0B7F7C;--on-primary:#fff;--sun:#FFB84D;--turq:#40E0D0;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;border-top:14px solid var(--turq);background:var(--bg);color:var(--ink);font:400 16px/1.55 Nunito,system-ui,sans-serif}
+h1,h2{font-family:Fredoka,Nunito,system-ui,sans-serif;margin:0;line-height:1.1}
+header{max-width:1040px;margin:0 auto;padding:36px 20px 20px;display:flex;align-items:center;gap:20px}
+.cat{width:104px;flex:none;transform-origin:50% 90%}
+.cat:hover{animation:wiggle .6s ease-in-out}
+@keyframes wiggle{25%{transform:rotate(-8deg)}75%{transform:rotate(8deg)}}
+@media (prefers-reduced-motion:reduce){.cat:hover{animation:none}}
+h1{font-size:clamp(2.2rem,7vw,4rem);font-weight:700;letter-spacing:-.01em}
+header p{margin:8px 0 0;color:var(--muted);font-size:1.1rem;font-weight:600}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px 64px;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:24px;align-items:start}
+@media(max-width:860px){.wrap{grid-template-columns:1fr}header{flex-direction:column;align-items:flex-start}}
+section{background:var(--card);border:3px solid var(--edge);border-radius:22px;box-shadow:6px 6px 0 var(--edge);padding:22px;margin-bottom:24px}
+h2{font-size:1.5rem;font-weight:600;margin-bottom:14px}
+h2 .dot{display:inline-block;width:.7em;height:.7em;border-radius:50%;margin-right:.45em;background:var(--turq);border:3px solid var(--edge)}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+label{display:block;font-weight:700;font-size:.92rem}
+input,select,textarea{width:100%;margin-top:4px;padding:10px 12px;font:inherit;color:var(--ink);background:var(--field);border:2px solid var(--edge);border-radius:12px}
+textarea{min-height:64px;resize:vertical}
+:is(input,select,textarea,button):focus-visible{outline:4px solid var(--primary);outline-offset:2px}
+.pet,.visit{border:2px dashed var(--edge);border-radius:16px;padding:14px;margin-bottom:14px;background:var(--field)}
+.visit{background:var(--card)}
+.head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font:600 1.05rem Fredoka,sans-serif}
+button{font:700 1rem Nunito,sans-serif;cursor:pointer;border-radius:999px;padding:11px 20px;border:3px solid var(--edge);background:var(--primary);color:var(--on-primary);box-shadow:3px 3px 0 var(--edge);transition:transform .08s,box-shadow .08s}
+button:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--edge)}
+button.ghost{background:var(--turq);color:#0E3B43}
+button.link{border:0;background:none;box-shadow:none;color:var(--muted);padding:0;font-weight:700;text-decoration:underline}
+.hol{margin:10px 0 0;font-weight:700;background:var(--sun);color:#0E3B43;display:inline-block;padding:2px 12px;border-radius:999px;font-size:.9rem}
+.hol[hidden]{display:none}
+.saved{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;background:var(--sun);color:#0E3B43;border:3px solid var(--edge);border-radius:22px;box-shadow:6px 6px 0 var(--edge);padding:16px 20px;margin-bottom:24px;font-weight:700}
+.saved[hidden]{display:none}
+.sentmsg{margin-top:24px;background:var(--turq);color:#0E3B43;border:3px solid var(--edge);border-radius:22px;box-shadow:6px 6px 0 var(--edge);padding:20px}
+.sentmsg[hidden]{display:none}
+.sentmsg .note{color:#0E3B43}
+.sentmsg .ghost{background:#fff}
+.saved .link{color:#0E3B43}
+.req{color:#C0182B;font-weight:800;margin-left:2px}
+.rates{width:100%;border-collapse:collapse}
+.rates td{padding:9px 0;border-bottom:2px dotted var(--edge)}
+.rates td:last-child{text-align:right;font:600 1.1rem Fredoka,sans-serif}
+.terms{max-height:190px;overflow:auto;background:var(--field);border:2px solid var(--edge);border-radius:14px;padding:12px 14px 12px 34px;font-size:.92rem;color:var(--muted)}
+.terms li{margin-bottom:6px}
+.check{display:flex;gap:10px;align-items:flex-start;margin:14px 0}
+.check input{width:22px;height:22px;margin-top:2px;accent-color:var(--primary)}
+.check label{font-weight:600}
+aside{position:sticky;top:calc(16px + env(safe-area-inset-top,0px))}
+@media(max-width:860px){aside{position:static}}
+.quote{background:var(--turq);color:#0E3B43;border:3px solid var(--edge);border-radius:22px;box-shadow:6px 6px 0 var(--edge);padding:20px}
+.quote h2{margin-bottom:10px}
+.line{display:flex;justify-content:space-between;gap:12px;padding:5px 0;font-weight:600;font-size:.93rem}
+.total{display:flex;justify-content:space-between;border-top:3px solid #0E3B43;margin-top:10px;padding-top:10px;font:700 1.8rem Fredoka,sans-serif}
+.small{font-size:.88rem;margin:8px 0 0}
+.note{color:var(--muted);font-size:.9rem;margin:10px 0 0}
+.done{display:none}
+.done pre{white-space:pre-wrap;font:inherit;background:var(--field);border:2px solid var(--edge);border-radius:14px;padding:14px;overflow-x:auto}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.err{color:#C0182B;font-weight:700;min-height:1.4em;margin:0 0 10px}
+</style>
+</head>
+<body>
+<header>
+  <svg class="cat" viewBox="0 0 120 110" role="img" aria-label="Cartoon cat face">
+    <path d="M18 52 L14 8 L50 28 Z" fill="#FFB84D" stroke="#0E3B43" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M102 52 L106 8 L70 28 Z" fill="#FFB84D" stroke="#0E3B43" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M22 40 L21 20 L36 29 Z" fill="#FF7F6B"/><path d="M98 40 L99 20 L84 29 Z" fill="#FF7F6B"/>
+    <ellipse cx="60" cy="64" rx="48" ry="40" fill="#FFB84D" stroke="#0E3B43" stroke-width="5"/>
+    <ellipse cx="42" cy="58" rx="7" ry="10" fill="#0E3B43"/><ellipse cx="78" cy="58" rx="7" ry="10" fill="#0E3B43"/>
+    <circle cx="44" cy="54" r="2.5" fill="#fff"/><circle cx="80" cy="54" r="2.5" fill="#fff"/>
+    <path d="M54 72 L66 72 L60 79 Z" fill="#FF7F6B" stroke="#0E3B43" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M60 79 Q60 88 50 88 M60 79 Q60 88 70 88" fill="none" stroke="#0E3B43" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M6 66 L28 70 M6 80 L28 76 M114 66 L92 70 M114 80 L92 76" style="stroke:var(--edge)" stroke-width="3.5" stroke-linecap="round"/>
+  </svg>
+  <div>
+    <h1>Cat Sitter Bianca</h1>
+    <p>Drop-in visits for your cat, provided by Bianca Wu, a cat sitter with extensive experience who can give a variety of medications. Pick your days, pick your times, see your price.</p>
+  </div>
+</header>
+
+<div class="wrap">
+<main>
+<div class="saved" id="saved" hidden>
+    <span id="savedText"></span>
+    <span class="actions"><button type="button" id="reopen">Reopen my booking</button><button type="button" class="link" id="fresh">Start a new one</button></span>
+  </div>
+<form id="form" novalidate>
+  <p class="note" style="margin:0 0 14px"><span class="req" aria-hidden="true">*</span> indicates required</p>
+  <section>
+    <h2><span class="dot"></span>Your details</h2>
+    <div class="row">
+      <label>Full name <span class="req" aria-hidden="true">*</span><input id="cname" required autocomplete="name"></label>
+      <label>Email <span class="req" aria-hidden="true">*</span><input id="cemail" type="email" required autocomplete="email"></label>
+      <label>Phone <span class="req" aria-hidden="true">*</span><input id="cphone" type="tel" required autocomplete="tel"></label>
+      <label>Home address <span class="req" aria-hidden="true">*</span><input id="caddr" required autocomplete="street-address"></label>
+    </div>
+    <label style="margin-top:12px">Emergency contact (name and phone) <span class="req" aria-hidden="true">*</span><input id="cemerg" required></label>
+    <label style="margin-top:12px">Vet name and phone <span class="req" aria-hidden="true">*</span><input id="cvet" required></label>
+  </section>
+
+  <section>
+    <h2><span class="dot"></span>Your pets</h2>
+    <div id="pets"></div>
+    <button type="button" class="ghost" id="addPet">Add another pet</button>
+  </section>
+
+  <section>
+    <h2><span class="dot"></span>Scheduling</h2>
+    <p class="note" style="margin-top:0">Add one visit for each time you want us to stop by. Each visit can be a different day and length. For example, 20 minutes in the morning and 45 minutes in the evening.</p>
+    <div id="visits" style="margin-top:14px"></div>
+    <button type="button" class="ghost" id="addVisit">Add another visit</button>
+  </section>
+
+  <section>
+    <h2><span class="dot"></span>Quote and rates</h2>
+    <table class="rates" id="rateTable"></table>
+    <p class="note">Your live quote is on the right. Final price is confirmed when your booking is approved.</p>
+  </section>
+
+  <section>
+    <h2><span class="dot"></span>Service agreement</h2>
+    <ol class="terms" tabindex="0" aria-label="Service agreement terms">
+      <li>The client confirms they are the owner or legal guardian of the pets listed and that the information given is accurate.</li>
+      <li>All pets must be up to date on core vaccinations. Please share any history of aggression or escape attempts.</li>
+      <li>The sitter will follow the routines provided and will contact the client if there is a concern.</li>
+      <li>In an emergency, the client authorizes the sitter to take the pet to the listed vet, or the nearest emergency vet, and agrees to cover the cost of treatment.</li>
+      <li>Payment is due before the start of the booking via Zelle or Venmo unless agreed otherwise.</li>
+      <li>The sitter is privately insured by Pet Sitters Associates. The sitter is not liable for illness, injury, or loss that could not reasonably have been prevented with normal care.</li>
+    </ol>
+    <div class="check"><input type="checkbox" id="agree" required><label for="agree">I have read and agree to the service agreement. <span class="req" aria-hidden="true">*</span></label></div>
+    <label>Type your full name as signature <span class="req" aria-hidden="true">*</span><input id="sig" required></label>
+  </section>
+
+  <p class="err" id="err" role="alert"></p>
+  <button type="submit">Request booking</button>
+  <div class="sentmsg" id="sent" role="status" tabindex="-1" hidden>
+    <h2 id="sentTitle">Request sent!</h2>
+    <p id="sentText"></p>
+    <p class="note">Your email app opens with your request already written. Press Send there to deliver it. Didn't see it open? Use "Open email again".</p>
+    <div class="actions"><button type="button" class="ghost" id="mail">Open email again</button><button type="button" class="ghost" id="copy">Copy details</button></div>
+    <pre id="summary" hidden></pre>
+  </div>
+</form>
+
+
+</main>
+
+<aside>
+  <div class="quote" aria-live="polite">
+    <h2>Your quote</h2>
+    <div id="lines"></div>
+    <div class="total"><span>Total</span><span id="total">$0</span></div>
+    <p class="small" id="basis"></p>
+  </div>
+</aside>
+</div>
+
+<script>
+// ---- Edit your email and rates here ----
+const CONFIG = {
+  business: "Cat Sitter Bianca",
+  email: "chunkycatceramics@gmail.com",
+  rates: [{min:20, price:25}, {min:45, price:35}, {min:60, price:45}],
+  holidayRate: 0.2
+};
+const $ = id => document.getElementById(id);
+const money = n => "$" + (Number.isInteger(n) ? n : n.toFixed(2));
+const priceOf = m => CONFIG.rates.find(r => r.min === Number(m)).price;
+function nthDow(y,m,dow,n){
+  if(n>0){ const f = new Date(y,m,1).getDay(); return 1+((dow-f+7)%7)+(n-1)*7; }
+  const l = new Date(y,m+1,0); return l.getDate()-((l.getDay()-dow+7)%7);
+}
+function holiday(str){
+  if(!str) return null;
+  const [y,m,d] = str.split("-").map(Number);
+  const fixed = {"1-1":"New Year's Day","6-19":"Juneteenth","7-4":"Independence Day","10-31":"Halloween","11-11":"Veterans Day","12-24":"Christmas Eve","12-25":"Christmas Day","12-31":"New Year's Eve"};
+  if(fixed[m+"-"+d]) return fixed[m+"-"+d];
+  if(m===1 && d===nthDow(y,0,1,3)) return "Martin Luther King Jr. Day";
+  if(m===2 && d===nthDow(y,1,1,3)) return "Presidents' Day";
+  if(m===5 && d===nthDow(y,4,1,-1)) return "Memorial Day";
+  if(m===9 && d===nthDow(y,8,1,1)) return "Labor Day";
+  if(m===11 && d===nthDow(y,10,4,4)) return "Thanksgiving";
+  return null;
+}
+$("rateTable").innerHTML = CONFIG.rates.map(r => `<tr><td>${r.min} minute visit</td><td>${money(r.price)}</td></tr>`).join("")
+  + `<tr><td>Holiday surcharge (Halloween, July 4th, Thanksgiving, Christmas, and other major US holidays)</td><td>+${CONFIG.holidayRate*100}%</td></tr>`;
+
+function fmtDate(s){ const [y,m,d] = s.split("-").map(Number); return new Date(y,m-1,d).toLocaleDateString(undefined,{weekday:"short",month:"short",day:"numeric",year:"numeric"}); }
+const TIMES = [["any","No time preference"],["morning","Morning"],["afternoon","Afternoon"],["evening","Evening"]];
+const HOURS = Array.from({length:16},(_,i)=>{ const h = i+6; return ["h"+h, `${h%12||12} ${h>=12?"PM":"AM"}`]; });
+const timeLabel = t => (TIMES.concat(HOURS).find(x=>x[0]===t) || TIMES[0])[1];
+const tkey = t => ({any:12,morning:9,afternoon:14,evening:18})[t] ?? Number((t||"h12").slice(1));
+const today = new Date(); today.setMinutes(today.getMinutes()-today.getTimezoneOffset());
+const minDate = today.toISOString().slice(0,10);
+
+// ---- Pets ----
+function addPet(){
+  const d = document.createElement("div");
+  d.className = "pet";
+  d.innerHTML = `<div class="head"><span class="pn"></span><button type="button" class="link rm">Remove</button></div>
+  <div class="row">
+    <label>Name <span class="req" aria-hidden="true">*</span><input class="p-name" required></label>
+    <label>Type<select class="p-type"><option>Cat</option><option>Other</option></select></label>
+    <label>Breed<input class="p-breed"></label>
+    <label>Age<input class="p-age"></label>
+  </div>
+  <label style="margin-top:10px">Feeding, health, and behavior notes<textarea class="p-notes"></textarea></label>`;
+  d.querySelector(".rm").onclick = () => { if(document.querySelectorAll(".pet").length>1){ d.remove(); renumber(); } };
+  $("pets").appendChild(d); renumber();
+}
+function renumber(){
+  const all = document.querySelectorAll(".pet");
+  all.forEach((p,i)=>{ p.querySelector(".pn").textContent="Pet "+(i+1); p.querySelector(".rm").style.visibility = all.length>1?"visible":"hidden"; });
+}
+$("addPet").onclick = addPet;
+
+// ---- Visits ----
+function addVisit(copyFrom){
+  const d = document.createElement("div");
+  d.className = "visit";
+  d.innerHTML = `<div class="head"><span class="vn"></span><button type="button" class="link rm">Remove</button></div>
+  <div class="row">
+    <label>Date <span class="req" aria-hidden="true">*</span><input class="v-date" type="date" min="${minDate}" required></label>
+    <label>Arrival time<select class="v-time"><optgroup label="Time of day">${TIMES.map(t=>`<option value="${t[0]}">${t[1]}</option>`).join("")}</optgroup><optgroup label="Specific hour">${HOURS.map(t=>`<option value="${t[0]}">${t[1]}</option>`).join("")}</optgroup></select></label>
+    <label>Visit length<select class="v-len">${CONFIG.rates.map(r=>`<option value="${r.min}">${r.min} min (${money(r.price)})</option>`).join("")}</select></label>
+  </div>
+  <p class="hol" hidden></p>`;
+  if(copyFrom){ d.querySelector(".v-date").value = copyFrom.querySelector(".v-date").value; }
+  d.querySelector(".rm").onclick = () => { if(document.querySelectorAll(".visit").length>1){ d.remove(); renumberV(); update(); } };
+  d.addEventListener("input", update);
+  $("visits").appendChild(d); renumberV(); update();
+}
+function renumberV(){
+  const all = document.querySelectorAll(".visit");
+  all.forEach((v,i)=>{ v.querySelector(".vn").textContent="Visit "+(i+1); v.querySelector(".rm").style.visibility = all.length>1?"visible":"hidden"; });
+}
+$("addVisit").onclick = () => { const v = document.querySelectorAll(".visit"); addVisit(v[v.length-1]); };
+
+function visits(){
+  return [...document.querySelectorAll(".visit")].map(v => ({
+    date: v.querySelector(".v-date").value, time: v.querySelector(".v-time").value, len: Number(v.querySelector(".v-len").value)
+  })).sort((a,b)=> a.date.localeCompare(b.date) || tkey(a.time)-tkey(b.time));
+}
+function cost(v){ const base = priceOf(v.len), h = holiday(v.date); return {base, h, sur: h ? +(base*CONFIG.holidayRate).toFixed(2) : 0}; }
+function update(){
+  const vs = visits();
+  document.querySelectorAll(".visit").forEach(c=>{
+    const h = holiday(c.querySelector(".v-date").value), p = c.querySelector(".hol");
+    p.hidden = !h;
+    if(h) p.textContent = `${h}: ${CONFIG.holidayRate*100}% holiday surcharge applies`;
+  });
+  let total = 0;
+  $("lines").innerHTML = vs.map(v=>{
+    const c = cost(v); total += c.base + c.sur;
+    return `<div class="line"><span>${v.date?fmtDate(v.date).replace(/, \d{4}$/,""):"Pick a date"}${v.time&&v.time!=="any"?", "+timeLabel(v.time):""} · ${v.len} min${c.h?` · ${c.h} +${money(c.sur)}`:""}</span><span>${money(+(c.base+c.sur).toFixed(2))}</span></div>`;
+  }).join("");
+  $("total").textContent = money(+total.toFixed(2));
+  const n = document.querySelectorAll(".pet").length;
+  $("basis").textContent = `${vs.length} visit${vs.length>1?"s":""} for ${n} pet${n>1?"s":""}.`;
+}
+$("pets").addEventListener("input", update);
+$("addPet").addEventListener("click", update);
+
+// ---- Submit ----
+let edited = false;
+let subjectPrefix = "Booking request: ";
+function build(){
+  const vs = visits(); let total = 0;
+  const pets = [...document.querySelectorAll(".pet")].map((p,i)=>{
+    const v = c => p.querySelector(c).value.trim();
+    return `  ${i+1}. ${v(".p-name")} (${v(".p-type")}${v(".p-breed")?", "+v(".p-breed"):""}${v(".p-age")?", age "+v(".p-age"):""})${v(".p-notes")?"\n     Notes: "+v(".p-notes"):""}`;
+  }).join("\n");
+  const rows = vs.map(v=>{ const c = cost(v); total += c.base + c.sur;
+    return `  ${fmtDate(v.date)} (${timeLabel(v.time)}), ${v.len} min: ${money(c.base)}${c.h?` + ${c.h} holiday surcharge ${money(c.sur)}`:""}`; }).join("\n");
+  return `${edited?"UPDATED ":""}BOOKING REQUEST: ${CONFIG.business}
+
+Client: ${$("cname").value}
+Email: ${$("cemail").value}
+Phone: ${$("cphone").value}
+Address: ${$("caddr").value || "n/a"}
+Emergency contact: ${$("cemerg").value}
+Vet: ${$("cvet").value || "n/a"}
+
+Pets:
+${pets}
+
+Visits:
+${rows}
+  Total: ${money(+total.toFixed(2))}
+
+Agreement accepted. Signed: ${$("sig").value} on ${new Date().toLocaleDateString()}`;
+}
+$("form").addEventListener("submit", e=>{
+  e.preventDefault();
+  const err = $("err"); err.textContent = "";
+  if(!$("form").checkValidity()){ $("form").reportValidity(); err.textContent="Please complete the highlighted fields."; return; }
+  if(!$("agree").checked){ err.textContent="Please accept the service agreement to continue."; return; }
+  subjectPrefix = edited ? "Updated booking: " : "Booking request: ";
+  $("summary").textContent = build();
+  save(); $("saved").hidden = true;
+  const first = $("cname").value.trim().split(" ")[0];
+  $("sentTitle").textContent = edited ? "Updated request sent!" : "Request sent!";
+  $("sentText").textContent = `Thank you${first?", "+first:""}! Bianca will contact you shortly. A copy of your request is in your email.`;
+  $("copy").textContent = "Copy details";
+  $("sent").hidden = false;
+  edited = true;
+  $("form").querySelector('button[type="submit"]').textContent = "Update booking request";
+  $("sent").scrollIntoView({behavior:"smooth", block:"center"});
+  setTimeout(openMail, 300);
+});
+function openMail(){
+  const cc = $("cemail").value.trim();
+  location.href = `mailto:${CONFIG.email}?cc=${encodeURIComponent(cc)}&subject=${encodeURIComponent(subjectPrefix+$("cname").value)}&body=${encodeURIComponent($("summary").textContent)}`;
+}
+$("mail").onclick = openMail;
+$("copy").onclick = async () => {
+  try{ await navigator.clipboard.writeText($("summary").textContent); $("copy").textContent="Copied"; }
+  catch(e){ $("copy").textContent="Select the text and copy it manually"; }
+};
+addPet(); addVisit();
+
+// ---- Saved booking (stored in this browser only) ----
+const KEY = "catsitterbianca-booking";
+const FIELDS = ["cname","cemail","cphone","caddr","cemerg","cvet","sig"];
+function stored(){ try{ return JSON.parse(localStorage.getItem(KEY)); }catch(e){ return null; } }
+function save(){
+  try{ localStorage.setItem(KEY, JSON.stringify({
+    saved: Date.now(),
+    f: Object.fromEntries(FIELDS.map(k=>[k,$(k).value])),
+    pets: [...document.querySelectorAll(".pet")].map(p=>({n:p.querySelector(".p-name").value,t:p.querySelector(".p-type").value,b:p.querySelector(".p-breed").value,a:p.querySelector(".p-age").value,o:p.querySelector(".p-notes").value})),
+    visits: visits().map(v=>({d:v.date,t:v.time,l:v.len}))
+  })); }catch(e){}
+}
+function restore(d){
+  FIELDS.forEach(k=>{ $(k).value = d.f[k] || ""; });
+  $("pets").innerHTML = ""; $("visits").innerHTML = "";
+  (d.pets.length ? d.pets : [{}]).forEach(x=>{
+    addPet(); const p = [...document.querySelectorAll(".pet")].pop();
+    p.querySelector(".p-name").value = x.n||""; p.querySelector(".p-type").value = x.t||"Cat";
+    p.querySelector(".p-breed").value = x.b||""; p.querySelector(".p-age").value = x.a||""; p.querySelector(".p-notes").value = x.o||"";
+  });
+  d.visits.forEach(x=>{
+    addVisit(); const v = [...document.querySelectorAll(".visit")].pop();
+    v.querySelector(".v-date").value = x.d||""; v.querySelector(".v-time").value = TIMES.concat(HOURS).some(o=>o[0]===x.t) ? x.t : "any"; v.querySelector(".v-len").value = x.l;
+  });
+  $("agree").checked = true; update();
+}
+const prev = stored();
+if(prev && prev.visits && prev.visits.length && prev.f){
+  const tot = prev.visits.reduce((t,v)=>{ const c = cost({date:v.d,len:v.l}); return t + c.base + c.sur; },0);
+  const first = (prev.f.cname||"").split(" ")[0];
+  $("savedText").textContent = `Welcome back${first?", "+first:""}! You have a saved booking: ${prev.visits.length} visit${prev.visits.length>1?"s":""}, ${money(+tot.toFixed(2))}.`;
+  $("saved").hidden = false;
+  $("reopen").onclick = () => {
+    restore(prev); edited = true; $("saved").hidden = true;
+    $("form").querySelector('button[type="submit"]').textContent = "Update booking request";
+    window.scrollTo({top:0});
+  };
+  $("fresh").onclick = () => { try{ localStorage.removeItem(KEY); }catch(e){} $("saved").hidden = true; };
+}
+</script>
+</body>
+</html>
